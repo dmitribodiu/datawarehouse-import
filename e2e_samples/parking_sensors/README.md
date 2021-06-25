@@ -1,5 +1,7 @@
 # DataOps - Parking Sensor Demo <!-- omit in toc -->
 
+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
+
 The sample demonstrate how DevOps principles can be applied end to end Data Pipeline Solution built according to the [Modern Data Warehouse (MDW)](https://azure.microsoft.com/en-au/solutions/architecture/modern-data-warehouse/) pattern.
 
 ## Contents <!-- omit in toc -->
