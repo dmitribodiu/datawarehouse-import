@@ -52,8 +52,7 @@ def standardize_parking_bay(parkingbay_sdf: DataFrame, load_id, loaded_on):
             "rd_seg_dsc",
             col("rd_seg_id").cast("int").alias("rd_seg_id"),
             "the_geom",
-            lit(load_id).alias("load_id"),
-            lit(loaded_on.isoformat()).cast("timestamp").alias("loaded_on")
+            lit(load_id).alias("load_id")
         )
     ).cache()
     # Data Validation
@@ -72,8 +71,7 @@ def standardize_sensordata(sensordata_sdf: DataFrame, load_id, loaded_on):
             col("lon").cast("float").alias("lon"),
             "location",
             "status",
-            lit(load_id).alias("load_id"),
-            lit(loaded_on.isoformat()).cast("timestamp").alias("loaded_on")
+            lit(load_id).alias("load_id")
         )
     ).cache()
     # Data Validation
