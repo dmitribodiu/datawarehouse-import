@@ -44,6 +44,8 @@ sensordata_sdf = spark.read\
   .option("multiLine", True)\
   .json(sensors_filepath)
 
+tc.track_event('Test', {})
+tc.flush()
 
 # Standardize
 t_parkingbay_sdf, t_parkingbay_malformed_sdf = s.standardize_parking_bay(parkingbay_sdf, load_id, loaded_on)
