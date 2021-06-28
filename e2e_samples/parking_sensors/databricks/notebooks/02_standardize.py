@@ -44,12 +44,13 @@ sensordata_sdf = spark.read\
   .option("multiLine", True)\
   .json(sensors_filepath)
 
-tc.track_event('Test', {})
-tc.flush()
-
 # Standardize
 t_parkingbay_sdf, t_parkingbay_malformed_sdf = s.standardize_parking_bay(parkingbay_sdf, load_id, loaded_on)
 t_sensordata_sdf, t_sensordata_malformed_sdf = s.standardize_sensordata(sensordata_sdf, load_id, loaded_on)
+
+tc.track_event('t_parkingbay_sdf', t_parkingbay_sdf)
+tc.track_event('t_sensordata_sdf', t_sensordata_sdf)
+tc.flush()
 
 # Insert new rows
 t_parkingbay_sdf.write.mode("append").insertInto("interim.parking_bay")
